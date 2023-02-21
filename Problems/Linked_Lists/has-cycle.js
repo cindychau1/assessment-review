@@ -12,9 +12,9 @@ b.next = c;
 c.next = d;
 d.next = b; // cycle
 
-//         _______
-//       /        \
-// a -> b -> c -> d
+        _______
+      /        \
+a -> b -> c -> d
 
 */
 
