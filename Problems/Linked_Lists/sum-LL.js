@@ -14,10 +14,31 @@ class Node {
   }
 }
 
-// Approach:
-// Time & Space Complexity:
+// Approach: Iterative, Pointers
+// Time & Space Complexity: O(n) time and O(1) space
 const sumList = (head) => {
-  // TO DO
+  // initialize current as head
+  let current = head;
+  let sum = 0;
+  // traverse through list
+  while (current !== null) {
+    // add current.val to existing sum
+    sum += current.val;
+    // shift current to the next node
+    current = current.next;
+  }
+  return sum;
 };
+const a = new Node(5);
+const b = new Node(4);
+const c = new Node(3);
+const d = new Node(-1);
+const e = new Node(7);
+
+a.next = b;
+b.next = c;
+c.next = d;
+d.next = e;
+console.log(sumList(a));
 
 module.exports = { sumList };

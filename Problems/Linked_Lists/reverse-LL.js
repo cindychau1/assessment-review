@@ -11,7 +11,7 @@ class Node {
   }
 }
 
-// Approach:
+// Approach: Iterative, two pointers
 // Time & Space Complexity: O(n) time and O(1) space
 const reverseList = (head) => {
   // intialize current as head
@@ -29,7 +29,13 @@ const reverseList = (head) => {
   return prev;
 };
 
-// a -> b -> c -> d
-// a <- b <- c <- d (reverse)
+const a = new Node('a');
+const b = new Node('b');
+const c = new Node('c');
+const d = new Node('d');
+a.next = b;
+b.next = c;
+c.next = d;
+console.log(reverseList(a));
 
 module.exports = { reverseList };
