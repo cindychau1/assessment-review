@@ -18,9 +18,23 @@ class Node {
   }
 }
 
-// Approach:
-// Time & Space Complexity:
+// Approach: Iterative, first-in last-out stack
+// Time & Space Complexity: O(n) time, O(n) space
+// Depth first search - must go deeper first before going across
 const dfs = (root) => {
-  // TO DO
+  if (!root) return [];
+  // store root node in stack
+  const stack = [root];
+  const output = [];
+  while (stack.length) {
+    // pop off current value and push it onto output
+    const current = stack.pop();
+    output.push(current.val);
+    // if current has a child node on its right or left, push it onto stack
+    if (current.right) stack.push(current.right);
+    if (current.left) stack.push(current.left);
+  }
+  return output;
 };
+
 module.exports = { dfs };

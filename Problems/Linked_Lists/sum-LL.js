@@ -21,7 +21,7 @@ const sumList = (head) => {
   let current = head;
   let sum = 0;
   // traverse through list
-  while (current !== null) {
+  while (current) {
     // add current.val to existing sum
     sum += current.val;
     // shift current to the next node

@@ -18,10 +18,21 @@ a -> b -> c -> d
 
 */
 
-//Approach: Fast & slow pointers
+// Approach: Fast & slow pointers
 // Time & Space Complexity: O(n) time | O(1) space
 const linkedListCycle = (head) => {
-  // TO DO
+  let current = head;
+  while (current) {}
 };
+const a = new Node('a');
+const b = new Node('b');
+const c = new Node('c');
+const d = new Node('d');
+
+a.next = b;
+b.next = c;
+c.next = d;
+d.next = b; // cycle
+console.log(linkedListCycle(a)); // true
 
 module.exports = { linkedListCycle };

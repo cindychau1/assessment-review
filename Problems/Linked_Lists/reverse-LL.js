@@ -17,7 +17,7 @@ const reverseList = (head) => {
   // intialize current as head
   let current = head;
   let prev = null;
-  while (current !== null) {
+  while (current) {
     const next = current.next;
     // reverse direction by setting current.next to prev
     current.next = prev;
