@@ -20,13 +20,34 @@ class Node {
   }
 }
 
-// Approach: Iterative
+// Approach: Iterative, dummyHead
 // Time & Space Complexity:
 const mergeTwoLists = (head1, head2) => {
-  // check whether head1 or head2 is smaller and start with smaller one
+  // create dummyhead node to use its next pointer
+  const dummyhead = new Node(null);
+  // create our pointers
+  let tail = dummyhead;
   let current1 = head1;
   let current2 = head2;
-
+  while (current1 && current2) {
+    // start will smaller value
+    if (current1.val < current2.val) {
+      tail.next = current1;
+      // progress current1 to next node
+      current1 = current1.next;
+    } else if (current2.val < current1.val) {
+      tail.next = current2;
+      // progress current2 to next node
+      current2 = current2.next;
+    }
+    // progress tail to next node
+    tail = tail.next;
+    // tack on remaining items
+    if (current1 !== null) tail.next = current1;
+    if (current2 !== null) tail.next = current2;
+  }
+  // return head of list, which the next node of dummyHead
+  return dummyhead.next;
   // if pointer points to null, take remaining elements of other list and tack it onto output
 };
 const a = new Node('5');
@@ -51,4 +72,5 @@ d.next = e;
 e.next = t;
 t.next = f;
 console.log(mergeTwoLists(a, q));
+
 module.exports = { mergeTwoLists };

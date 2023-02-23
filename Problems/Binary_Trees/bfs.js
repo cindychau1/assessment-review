@@ -18,10 +18,21 @@ class Node {
   }
 }
 
-// Approach:
-// Time & Space Complexity:
+// Approach: Iterative, first-in first-out queue
+// Time & Space Complexity: O(n) time, O(n) space
+// BFS: Travel across before going deeper
 const bfs = (root) => {
-  // TO DO
+  if (!root) return [];
+  // store root node in queue
+  const queue = [root];
+  const output = [];
+  while (queue.length) {
+    const current = queue.shift();
+    output.push(current.val);
+    if (current.left) queue.push(current.left);
+    if (current.right) queue.push(current.right);
+  }
+  return output;
 };
 
 module.exports = { bfs };
