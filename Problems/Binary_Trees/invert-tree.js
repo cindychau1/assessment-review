@@ -33,7 +33,16 @@ class Node {
 // Approach:
 // Time & Space Complexity:
 const invertTree = (root) => {
-  // TO DO
+  // base
+  if (!root) return null;
+  // recurisvely call left and right side of trees
+  const left = invertTree(root.left);
+  const right = invertTree(root.right);
+  // set root.left to right subtree and root.right to left subtree
+  root.left = right;
+  root.right = left;
+  // return root to get new inverted tree
+  return root;
 };
 
 module.exports = { invertTree };

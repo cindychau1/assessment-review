@@ -24,10 +24,15 @@ class Node {
 }
 
 // Approach:
-// Time & Space Complexity:
+// Time & Space Complexity: O(n) time and O(h) spsace where n is number of nodes and h is height of trees
 const maxPathSum = (root) => {
-  if (!root) return [];
-  
+  // base: if root does not exist, return -Infinity since it would always be smaller value in comparison
+  if (!root) return -Infinity;
+  // base: if root has no children, return root.val
+  if (!root.left && !root.right) return root.val;
+  const leftMaxPathSum = maxPathSum(root.left);
+  const rightMaxPathSum = maxPathSum(root.right);
+  return root.value + Math.max(leftMaxPathSum, rightMaxPathSum);
 };
 
 module.exports = { maxPathSum };
