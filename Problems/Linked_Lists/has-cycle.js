@@ -12,17 +12,33 @@ b.next = c;
 c.next = d;
 d.next = b; // cycle
 
-        _______
-      /        \
-a -> b -> c -> d
+          _____________
+         /             \
+a   ->   b  ->   c   -> d
 
 */
 
-// Approach: Fast & slow pointers
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
+}
+
+// Approach: fast and slow pointers
 // Time & Space Complexity: O(n) time | O(1) space
 const linkedListCycle = (head) => {
-  let current = head;
-  while (current) {}
+  let fast = head;
+  let slow = head;
+  while (fast && fast.next) {
+    // progress slow to next node
+    slow = slow.next;
+    // progress fast to the next next node
+    fast = fast.next.next;
+    if (slow.val === fast.val) return true;
+  }
+  // if there is no cycle after traversing list, return false
+  return false;
 };
 const a = new Node('a');
 const b = new Node('b');

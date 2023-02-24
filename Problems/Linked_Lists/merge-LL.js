@@ -43,8 +43,8 @@ const mergeTwoLists = (head1, head2) => {
     // progress tail to next node
     tail = tail.next;
     // tack on remaining items
-    if (current1 !== null) tail.next = current1;
-    if (current2 !== null) tail.next = current2;
+    if (current1) tail.next = current1;
+    if (current2) tail.next = current2;
   }
   // return head of list, which the next node of dummyHead
   return dummyhead.next;

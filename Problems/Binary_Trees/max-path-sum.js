@@ -26,7 +26,8 @@ class Node {
 // Approach:
 // Time & Space Complexity:
 const maxPathSum = (root) => {
-  // TO DO
+  if (!root) return [];
+  
 };
 
 module.exports = { maxPathSum };
